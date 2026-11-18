@@ -1,0 +1,13 @@
+import axios from 'axios';
+const BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const api = axios.create({ baseURL: BASE });
+export const getItems = (params) => api.get('/api/items', { params });
+export const createItem = (data) => api.post('/api/items', data);
+export const updateItem = (id, data) => api.put(`/api/items/${id}`, data);
+export const deleteItem = (id) => api.delete(`/api/items/${id}`);
+export const getCategories = () => api.get('/api/categories');
+export const createCategory = (data) => api.post('/api/categories', data);
+export const deleteCategory = (id) => api.delete(`/api/categories/${id}`);
+export const getLocations = () => api.get('/api/locations');
+export const createLocation = (data) => api.post('/api/locations', data);
+export const deleteLocation = (id) => api.delete(`/api/locations/${id}`);
